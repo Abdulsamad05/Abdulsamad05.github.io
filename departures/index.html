@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abdulsamad Aliyu, AI, data and security engineer</title>
+  <meta name="description" content="Projects in AI, data and security: a finance platform in daily use, an evaluated text-to-SQL agent, and machine learning on 50,000-record datasets.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#111210">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Abdulsamad Aliyu, AI, data and security engineer">
+  <meta property="og:description" content="Projects in AI, data and security: a finance platform in daily use, an evaluated text-to-SQL agent, and machine learning on 50,000-record datasets.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Abdulsamad Aliyu, AI, data and security engineer">
+  <meta name="twitter:description" content="Projects in AI, data and security: a finance platform in daily use, an evaluated text-to-SQL agent, and machine learning on 50,000-record datasets.">
+  <!-- site-url: canonical, og:url and absolute image URLs. Run: node tools/set-domain.js https://your-domain -->
+  <link rel="canonical" href="https://abdulsamad05.github.io/">
+  <meta property="og:url" content="https://abdulsamad05.github.io/">
+  <meta property="og:image" content="https://abdulsamad05.github.io/assets/departures/og.png">
+  <meta name="twitter:image" content="https://abdulsamad05.github.io/assets/departures/og.png">
+  <!-- /site-url -->
+  <link rel="icon" href="../assets/departures/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/departures/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/departures/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" href="../assets/fonts/big-shoulders-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/fonts/departures.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../shared/print.css" media="print">
+  <script src="boot.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {"@type":"Person","@id":"#me","name":"Abdulsamad Aliyu","jobTitle":"AI, data and security engineer","description":"I build software people rely on, and I check the numbers before anyone else has to.","address":{"@type":"PostalAddress","addressLocality":"Aberdeen","addressCountry":"GB"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Stirling"},{"@type":"CollegeOrUniversity","name":"The Robert Gordon University"}],"sameAs":["https://www.linkedin.com/in/abdulsamad-aliyu-shehu-"],"knowsAbout":["Python","SQL","TypeScript","PyTorch","scikit-learn","LLM APIs","evaluation sets","feature engineering","anomaly detection","time-series forecasting","Postgres","Pandas","NumPy","Excel","authentication and access-control review","webhook verification","AES-GCM","Splunk","Scapy","automated testing","REST APIs","Git","Docker","Linux","AWS","Azure","Supabase","React"]},
+      {"@type":"CreativeWork","@id":"#finance-platform","name":"Finance platform in daily use","description":"A platform a self-employed client uses every day for income, invoices, expenses and UK tax.","keywords":"Python, SQL, Postgres, TypeScript, Supabase","creator":{"@id":"#me"}},
+      {"@type":"CreativeWork","@id":"#text-to-sql","name":"Ask a database in plain English","description":"An agent that turns plain-English questions into SQL, tested against its own gold-labelled question set.","keywords":"Python, SQL, LLM APIs","creator":{"@id":"#me"}},
+      {"@type":"CreativeWork","@id":"#customer-value","name":"Customer lifetime value and churn","description":"Lifetime-value and churn models on 1,067,371 transaction lines from a UK online retailer, a public dataset (UCI Online Retail II).","keywords":"Python, Pandas, SciPy, scikit-learn","creator":{"@id":"#me"}},
+      {"@type":"CreativeWork","@id":"#predictive-models","name":"Churn, fraud and phishing models","description":"Classification models on 50,000 customer records and 50,000+ emails.","keywords":"Python, scikit-learn, Pandas","creator":{"@id":"#me"}},
+      {"@type":"CreativeWork","@id":"#anomaly-detection","name":"Anomaly detection on event data","description":"Anomaly detection and forecasting on 50,000 unlabelled events arriving in six inconsistent formats.","keywords":"Python, scikit-learn (Isolation Forest), SARIMA","creator":{"@id":"#me"}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-scan"></div>
+    <div class="intro-board">
+      <div class="intro-sub">Terminal A · Departures</div>
+      <div class="intro-tiles" id="introTiles"></div>
+      <div class="intro-sub intro-status" id="introStatus">Systems starting</div>
+    </div>
+  </div>
+  <button type="button" class="intro-skip" id="introSkip">Skip intro</button>
+
+  <a class="skip" href="#work">Skip to projects</a>
+  <p id="live" class="sr-only" role="status" aria-live="polite"></p>
+
+  <div class="ticker" id="tickerBar" role="region" aria-label="Announcements">
+    <span class="ticker-tag">Announcements</span>
+    <div class="ticker-viewport"><div class="ticker-track" id="ticker"></div></div>
+    <button type="button" class="ticker-pause" id="tickerPause" aria-pressed="false" aria-label="Pause announcements">
+      <svg class="i-pause" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>
+      <svg class="i-play" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M7 4l13 8-13 8V4z"/></svg>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#top" class="brand">
+        <span class="brand-mark">AA</span>
+        <span class="eyebrow">Terminal A · Portfolio</span>
+      </a>
+      <nav aria-label="Main" class="nav">
+        <a href="#work">Departures</a>
+        <a href="#about">Arrivals</a>
+        <a href="#contact">Lost &amp; found</a>
+      </nav>
+      <div class="clock">
+        <span class="muted eyebrow">Your local time</span>
+        <span id="clock" class="clock-time">--:--</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="top" class="wrap hero">
+      <div class="boarding eyebrow">
+        <span class="dot blink" aria-hidden="true"></span>
+        <span>Now boarding</span>
+      </div>
+      <h1 class="display hero-title">Abdulsamad<br>Aliyu</h1>
+      <div class="hero-foot">
+        <p class="lede" data-field="identity.intro">I build software people rely on, and I check the numbers before anyone else has to.</p>
+        <div class="actions">
+          <a href="#work" class="btn btn-accent">See the board
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="wrap work">
+      <div class="work-head">
+        <div class="stack">
+          <span class="eyebrow muted" title="Keyboard: Up and Down move through the board, Enter opens a flight, Esc closes it">Selected work · click a flight</span>
+          <p class="sr-only">Keyboard: Up and Down move through the board, Enter opens a flight, Esc closes it.</p>
+          <h2 class="tiles" aria-label="Departures"><span class="tile" aria-hidden="true">D</span><span class="tile" aria-hidden="true">E</span><span class="tile" aria-hidden="true">P</span><span class="tile" aria-hidden="true">A</span><span class="tile" aria-hidden="true">R</span><span class="tile" aria-hidden="true">T</span><span class="tile" aria-hidden="true">U</span><span class="tile" aria-hidden="true">R</span><span class="tile" aria-hidden="true">E</span><span class="tile" aria-hidden="true">S</span></h2>
+        </div>
+        <div id="filters" class="filters" role="group" aria-label="Filter by status"><button type="button" class="chip" data-filter="all" aria-pressed="true">All flights</button><button type="button" class="chip" data-filter="shipped" aria-pressed="false">Departed</button><button type="button" class="chip" data-filter="progress" aria-pressed="false">Boarding</button><button type="button" class="chip" data-filter="concept" aria-pressed="false">On hold</button></div>
+      </div>
+
+      <div class="board" id="board">
+        <div class="board-inner">
+          <div class="board-head grid-cols" aria-hidden="true">
+            <span>Year</span><span>Destination</span><span>Via</span><span>Gate</span><span>Status</span>
+          </div>
+          <div id="rows" class="rows">
+    <button type="button" class="row" data-id="finance-platform" data-status="shipped" aria-pressed="true">
+      <span class="row-year">2025–present</span>
+      <span class="row-name"><span class="sr-only">Finance platform in daily use</span><span class="flap" aria-hidden="true">Finance platform in daily use</span></span>
+      <span class="soft">Python, SQL, Postgres, TypeScript, Supabase</span>
+      <span class="soft">A1</span>
+      <span class="status"><span class="status-dot " aria-hidden="true"></span><span class="status-label"><span class="sr-only">Departed</span><span class="flap" aria-hidden="true">Departed</span></span></span>
+    </button>
+    <button type="button" class="row" data-id="text-to-sql" data-status="shipped" aria-pressed="false">
+      <span class="row-year">2025</span>
+      <span class="row-name"><span class="sr-only">Ask a database in plain English</span><span class="flap" aria-hidden="true">Ask a database in plain English</span></span>
+      <span class="soft">Python, SQL, LLM APIs</span>
+      <span class="soft">A2</span>
+      <span class="status"><span class="status-dot " aria-hidden="true"></span><span class="status-label"><span class="sr-only">Departed</span><span class="flap" aria-hidden="true">Departed</span></span></span>
+    </button>
+    <button type="button" class="row" data-id="customer-value" data-status="shipped" aria-pressed="false">
+      <span class="row-year">2026</span>
+      <span class="row-name"><span class="sr-only">Customer lifetime value and churn</span><span class="flap" aria-hidden="true">Customer lifetime value and churn</span></span>
+      <span class="soft">Python, Pandas, SciPy, scikit-learn</span>
+      <span class="soft">A3</span>
+      <span class="status"><span class="status-dot " aria-hidden="true"></span><span class="status-label"><span class="sr-only">Departed</span><span class="flap" aria-hidden="true">Departed</span></span></span>
+    </button>
+    <button type="button" class="row" data-id="predictive-models" data-status="shipped" aria-pressed="false">
+      <span class="row-year">2024–2025</span>
+      <span class="row-name"><span class="sr-only">Churn, fraud and phishing models</span><span class="flap" aria-hidden="true">Churn, fraud and phishing models</span></span>
+      <span class="soft">Python, scikit-learn, Pandas</span>
+      <span class="soft">A4</span>
+      <span class="status"><span class="status-dot " aria-hidden="true"></span><span class="status-label"><span class="sr-only">Departed</span><span class="flap" aria-hidden="true">Departed</span></span></span>
+    </button>
+    <button type="button" class="row" data-id="anomaly-detection" data-status="shipped" aria-pressed="false">
+      <span class="row-year">2024–2025</span>
+      <span class="row-name"><span class="sr-only">Anomaly detection on event data</span><span class="flap" aria-hidden="true">Anomaly detection on event data</span></span>
+      <span class="soft">Python, scikit-learn (Isolation Forest), SARIMA</span>
+      <span class="soft">A5</span>
+      <span class="status"><span class="status-dot " aria-hidden="true"></span><span class="status-label"><span class="sr-only">Departed</span><span class="flap" aria-hidden="true">Departed</span></span></span>
+    </button></div>
+          <p id="empty" class="empty muted" hidden>No flights with this status yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap pass-wrap" aria-label="Selected project">
+      <div class="printer" id="printer">
+        <div class="slot-head eyebrow muted" aria-hidden="true">
+          <span>Boarding pass printer</span>
+          <span class="slot-led"></span>
+        </div>
+        <div class="slot" aria-hidden="true"></div>
+        <div class="paper">
+          <article id="pass" class="pass waiting">
+    <div class="pass-main">
+      <div class="pass-meta"><span>Boarding pass · 6 security weaknesses found and fixed</span><span>Flight AA101</span></div>
+      <h3 class="display pass-title"><span class="sr-only">Finance platform in daily use</span><span class="flap" aria-hidden="true">Finance platform in daily use</span></h3>
+      <p class="pass-summary">A platform a self-employed client uses every day for income, invoices, expenses and UK tax.</p>
+      <div class="pass-grid">
+        <div><span class="label">The problem</span><span>My client was running her finances from spreadsheets. She needed one place for income, invoicing, expenses and tax that she could trust.</span></div>
+        <div><span class="label">What I did</span><span>Combined three data sources into one structure: a direct bank feed, photographed receipts read with OCR, and forwarded invoice emails.</span><span>Shipped four AI features in small releases: receipt OCR with categorisation, invoice filling from forwarded emails, overdue-invoice chasing and savings plans.</span></div>
+        <div><span class="label">Outcome</span><span>Tracked use after release. Two AI features are used constantly and one is barely touched, and that changed what I built next.</span><span>Caught a tax figure that was wrong while every automated test passed, by checking the output against published HMRC guidance, then corrected the logic.</span><span>Found and fixed six security weaknesses, including a login with no attempt limit, nine routes reachable without signing in, and a webhook that would accept a forged message.</span><span>Traced a live incident where an email loop sent over 400 messages and fixed it the same day.</span></div>
+      </div>
+    </div>
+    <div class="pass-stub">
+      <div class="stub-grid">
+        <div><span class="label">Year</span><strong>2025–present</strong></div>
+        <div><span class="label">Status</span><strong class="pass-status">Departed</strong></div>
+        <div><span class="label">Gate</span><strong>A1</strong></div>
+        <div><span class="label">Via</span><strong>Python, SQL, Postgres, TypeScript, Supabase</strong></div>
+      </div>
+      <div class="barcode" aria-hidden="true"></div>
+      
+    </div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="wrap two-col">
+        <div class="stack">
+          <span class="eyebrow accent">Arrivals</span>
+          <h2 class="display section-title">Where I've come from</h2>
+        </div>
+        <div class="stack-lg">
+          <p class="body-lg" data-field="about.0">I'm an engineer who works across AI, data and security. For the past year I've built and run a finance platform that a self-employed client uses every day. That work taught me to ship in small releases, track what people actually use, and check outputs against an independent source rather than trusting the tests.</p>
+          <p class="body-lg" data-field="about.1">Before that I finished an MSc in Artificial Intelligence at the University of Stirling, after a BSc in Cybersecurity at Robert Gordon University. I like problems where the answer has to be right, not just plausible.</p>
+          <dl class="facts">
+            <div><dt>Based in</dt><dd data-field="identity.city">Aberdeen, UK</dd></div>
+            <div><dt>Focus</dt><dd data-field="identity.focus">AI, data and security</dd></div>
+            <div><dt>Toolkit</dt><dd data-field="skills.all">Python, SQL, TypeScript, PyTorch, scikit-learn, LLM APIs, evaluation sets, feature engineering, anomaly detection, time-series forecasting, Postgres, Pandas, NumPy, Excel, authentication and access-control review, webhook verification, AES-GCM, Splunk, Scapy, automated testing, REST APIs, Git, Docker, Linux, AWS, Azure, Supabase, React</dd></div>
+            <div><dt>Next stop</dt><dd data-field="identity.seeking">Junior and graduate roles in AI, data and security.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="runway" aria-hidden="true"></div>
+      <div class="wrap stack-lg">
+        <span class="eyebrow" id="lostFound">Lost &amp; found</span>
+        <h2 class="display contact-title" id="landTitle">Looking for someone? Say hello.</h2>
+        <div class="actions">
+          <a href="mailto:abdulsamadsaliyu@gmail.com" class="btn btn-dark" data-link="email" data-field="contact.email">abdulsamadsaliyu@gmail.com</a>
+          <button type="button" class="btn btn-outline-dark copy-btn" id="copyEmail">Copy email<span class="stamp-mark" aria-hidden="true">Copied ✓</span></button>
+          <a href="https://www.linkedin.com/in/abdulsamad-aliyu-shehu-" class="btn btn-outline-dark" data-link="linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn btn-outline-dark" data-link="github" hidden>GitHub</a>
+          <a class="btn btn-outline-dark" data-link="cv" hidden>Get CV</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer eyebrow muted">
+    <span>© <span id="year">2026</span> Abdulsamad Aliyu</span>
+    <div class="footer-controls">
+      <div class="motion-switch" role="group" aria-label="Motion">
+        <span>Motion</span>
+        <button type="button" data-motion="full" aria-pressed="true">Full</button>
+        <button type="button" data-motion="calm" aria-pressed="false">Calm</button>
+      </div>
+      <button type="button" class="replay" id="replayIntro">Replay intro</button>
+      <a href="#top">Back to the gate ↑</a>
+    </div>
+  </footer>
+
+  <!-- decorative layers, filled in by extras.js -->
+  <div id="flight" class="flight" aria-hidden="true" hidden>
+    <svg id="flightSvg">
+      <defs><mask id="flownMask" maskUnits="userSpaceOnUse"><path id="flownMaskPath" fill="none" stroke="#fff" stroke-width="8"/></mask></defs>
+      <path id="route" class="route" fill="none"/>
+      <path id="routeFlown" class="route-flown" fill="none" mask="url(#flownMask)"/>
+      <g id="plane" class="plane">
+        <path d="M13 0c0-1.4-1.6-2.4-4-2.4H-10c-1.4 0-2.4 1-2.4 2.4s1 2.4 2.4 2.4H9c2.4 0 4-1 4-2.4z M3-2.2L-3-12h-3.2l2.4 9.8z M3 2.2L-3 12h-3.2l2.4-9.8z M-8-2.2l-3.4-5h-2l1.4 5z M-8 2.2l-3.4 5h-2l1.4-5z"/>
+      </g>
+    </svg>
+  </div>
+  <div id="ghost" class="ghost" aria-hidden="true"></div>
+  <button type="button" id="soundToggle" class="sound-toggle" aria-pressed="false" aria-label="Sound">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path class="wave" d="M15.5 8.5a5 5 0 0 1 0 7"/><path class="wave" d="M18.5 5.5a9 9 0 0 1 0 13"/><path class="mute" d="M16 9l6 6M22 9l-6 6"/></svg>
+    <span class="sound-label">Sound off</span>
+  </button>
+
+  <script src="../shared/content.js" defer></script>
+  <script src="../shared/site.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="extras.js" defer></script>
+</body>
+</html>

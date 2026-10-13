@@ -1,0 +1,20 @@
+/* ===== Print summary, shared by all three concepts =====
+   Linked with media="print", so nothing here reaches the screen. The page is
+   swapped for the plain summary that site.js builds from content.js. */
+@media print {
+  @page { margin: 16mm; }
+  html, body { background: #fff !important; color: #000 !important; }
+  body { font: 10.5pt/1.4 Helvetica, Arial, sans-serif !important; overflow: visible !important; }
+  body > *:not(.print-cv) { display: none !important; }
+  .print-cv { display: block !important; }
+  .print-cv .p-name { margin: 0; font-size: 22pt; font-weight: bold; line-height: 1.1; }
+  .print-cv h2 { margin: 14pt 0 5pt; padding-bottom: 2pt; border-bottom: 1px solid #000; font-size: 10pt; letter-spacing: .08em; text-transform: uppercase; }
+  .print-cv h3 { display: flex; justify-content: space-between; gap: 12pt; margin: 6pt 0 1pt; font-size: 10.5pt; }
+  .print-cv h3 span { flex: none; font-weight: normal; }
+  .print-cv p { margin: 0 0 2pt; }
+  .print-cv ul { margin: 2pt 0; padding-left: 14pt; }
+  .print-cv .p-head { font-size: 12pt; }
+  .print-cv .p-contact { margin-bottom: 6pt; }
+  .print-cv .p-meta { font-style: italic; }
+  .print-cv .p-item { break-inside: avoid; }
+}
